@@ -38,6 +38,8 @@ var generateBtn = document.querySelector("#generate");
     var confirmUpperCase = confirm("Include uppercase characters?");
     var confirmNumeric = confirm("Include numeric values?");
     var confirmSpecialCharacters = confirm("Include special characters?");
+    
+    var userOptionChars = [];
 
     // checking that user has selected yes for at least one of the 4 types of characters above
     if ((confirmLowerCase) || (confirmUpperCase) || (confirmNumeric) || (confirmSpecialCharacters)) {
@@ -50,11 +52,40 @@ var generateBtn = document.querySelector("#generate");
     }
   }
 
-    // generate password
+    // function that generates the password
+    function generatePassword(userOptions) {
+        var password = [];
+
+        // if lowercase confirmed
+
+            // push a random lower char to password
+            // add lowerCharsArray to userOptionalChars
+
+        // if uppercase confirmed
+        
+            // push a random upper char to password
+            // add upperCharsArray to userOptionalChars
+
+        // if special chars confirmed
+
+            // push a random special char to password
+            // add specialCharsArray to userOptionalChars
+
+        // if numeric is confirmed
+
+            // push a random numeric char to password
+            // add numericCharsArray to userOptionalChars
+
+        // for loop between start number of elements in password to the requested number of characters
+
+        // convert the array to a string
+
+        // return password string
+    }
+
 
     // alert password;
     // return password;
-}
 
 
 
