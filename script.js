@@ -30,7 +30,9 @@ var generateBtn = document.querySelector("#generate");
     // checks to ensure that the password length is between 8 and 128... 
     // incorporates parseInt to convert user's string input to a number
     if ((passwordLength < parseInt("8")) || (passwordLength > parseInt("128"))) {
-        alert("must have password between 8 and 128 characters")
+        alert("must have password between 8 and 128 characters");
+        // using return to stop further execution of the function if password length does not meet requirements
+        return;
     }
     var confirmLowerCase = confirm("Include lowercase characters?");
     var confirmUpperCase = confirm("Include uppercase characters?");
@@ -43,6 +45,8 @@ var generateBtn = document.querySelector("#generate");
     }
     else {
         alert("Must select yes for at least one character type!");
+        // using return to stop further execution of the function if no character types confirmed
+        return;
     }
   }
 
