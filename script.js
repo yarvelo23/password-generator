@@ -1,5 +1,6 @@
 // DEFINING USER INPUT VARIABLES
 
+// making these variables global so that they can be called outside of each function
 var passwordLength;
 var confirmNumeric;
 var confirmUpperCase;
@@ -24,15 +25,54 @@ var userChoices;
 var generateBtn = document.querySelector("#generate");
 
 // function that generates the password
+// function that generates the password
 function generatePassword() {
     // ask user for input
     passwordLength = parseInt(prompt("Number of characters in password?"));
+    // checks if password length meets requirements
     if ((passwordLength < 8) || (passwordLength > 128)) {
+        // if requirements not met, alerts this
         alert("Password must be between 8 and 128 characters!");
+        // stops further execution of the function if above condition is true
+        return;
     }
     else {
-        alert("Please choose your character types");
+        alert("Please choose your character types!");
     }
+    // continues to prompt user for character types selection
+    confirmNumeric = confirm("Include numbers?");
+    confirmUpperCase = confirm("Include upper case letters?");
+    confirmLowerCase = confirm("Include lower case letters?");
+    confirmSpecialCharacters = confirm("Include special characters?");
+    
+    // condition to confirm at least one character type selected
+    if (confirmNumeric === false && confirmUpperCase === false && confirmLowerCase === false & confirmSpecialCharacters === false) {
+        alert("Must select at least one character type!");
+    }
+    // if all 4 types selected, user inputs are added to the userChoices variable
+    else if (confirmNumeric && confirmUpperCase && confirmLowerCase && confirmSpecialCharacters) {
+        alert("You have selected 4 character types.");
+        // ======= HOW TO REPLACE CONCAT WITH PUSH =======
+        userChoices = character.concat(numericArray, upperCaseArray, lowerCaseArray, );
+    }
+    // if 3 types selected, user inputs are added to the userChoices variable
+    else if (confirmNumeric && confirmUpperCase && confirmLowerCase) {
+        alert("You have selected numeric, uppercase and lowercase.");
+        userChoices = character.concat(numericArray, upperCaseArray, lowerCaseArray);
+    }
+    else if (confirmNumeric && confirmUpperCase && confirmSpecialCharacters) {
+        alert("You have selected numeric, uppercase and special characters.");
+        userChoices = character.concat(numericArray, upperCaseArray, specialCharactersArray);
+    }
+    else if (confirmNumeric && confirmLowerCase && confirmSpecialCharacters) {
+        alert("You have selected numeric, lowercase and special characters.");
+        userChoices = character.concat(numericArray, lowerCaseArray, specialCharactersArray);
+    }
+    else if (confirmUpperCase && confirmLowerCase && confirmSpecialCharacters) {
+        alert("You have selected uppercase, lowercase and special characters.");
+        userChoices = character.concat(upperCaseArray, lowerCaseArray, specialCharactersArray);
+    }
+    // if 2 types selected, user inputs are added to the userChoices variable
 }
 
 // function that writes password to text area in html
