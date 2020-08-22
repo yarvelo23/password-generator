@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // get user options and store in vars
+  function getUserOptions() {
+    var passwordLength = prompt("Number of characters in password? Should be longer than 8 and shorter than 128!");
+    if ((passwordLength < parseInt("8")) || (passwordLength > parseInt("128"))) {
+        alert("must have password between 8 and 128 characters")
+    }
+    var confirmLowerCase = confirm("Include lowercase characters?");
+    var confirmUpperCase = confirm("Include uppercase characters?");
+    var confirmNumeric = confirm("Include numeric values?");
+    var confirmSpecialCharacters = confirm("Include special characters?");
+  }
+
+  getUserOptions();
+    </script>
+</body>
+</html>
