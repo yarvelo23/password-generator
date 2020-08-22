@@ -1,107 +1,48 @@
-// Assignment Code
+// DEFINING USER INPUT VARIABLES
+
+var passwordLength;
+var confirmNumeric;
+var confirmUpperCase;
+var confirmLowerCase;
+var confirmSpecialCharacters;
+
+
+// DEFINING ARRAYS OF POSSIBLE PASSWORD CHARACTERS
+
+// array of uppercase letters
+var upperCaseArray = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",] 
+// array of lowercase letters
+var lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
+// array of special characters
+var specialCharactersArray = ["@", "%", "+", "\\", "/", "'", "!", "#", "$", "^", "?", ":", ",", ")", "(", "}", "{", "]", "[", "~", "-", "_", ".",];
+// array of numbers
+var numericArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+var userChoices;
+  
+// declaring variable that will activate the generate button
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-//function start() {
-    //console.log("we're here!");
-    //var password = generatePassword();
-    //var passwordText = document.querySelector("#password");
-    //passwordText.value = password;
- //}
-
-// ====== DEFINING ARRAYS ======
-
-  // array of uppercase letters
-  var upperCaseArray = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",] 
-  // array of lowercase letters
-  var lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
-  // array of special characters
-  var specialCharactersArray = ["@", "%", "+", "\\", "/", "'", "!", "#", "$", "^", "?", ":", ",", ")", "(", "}", "{", "]", "[", "~", "-", "_", ".",];
-  // array of numbers
-  var numericArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  
-
-  // ====== DEFINING FUNCTIONS ====== 
-  
-  // get user options and store in vars
-  function getUserOptions() {
-    // prompts user for password length and stores in variable
-    var passwordLength = prompt("Number of characters in password?");
-    // checks to ensure that the password length is between 8 and 128... 
-    // incorporates parseInt to convert user's string input to a number
-    if ((passwordLength < parseInt("8")) || (passwordLength > parseInt("128"))) {
-        alert("must have password between 8 and 128 characters");
-        // using return to stop further execution of the function if password length does not meet requirements
-        return;
-    }
-    var confirmLowerCase = confirm("Include lowercase characters?");
-    var confirmUpperCase = confirm("Include uppercase characters?");
-    var confirmNumeric = confirm("Include numeric values?");
-    var confirmSpecialCharacters = confirm("Include special characters?");
-    
-    var userOptionChars = [];
-
-    // checking that user has selected yes for at least one of the 4 types of characters above
-    if ((confirmLowerCase) || (confirmUpperCase) || (confirmNumeric) || (confirmSpecialCharacters)) {
-        // if at least one is true, do nothing, hence we leave below blank
+// function that generates the password
+function generatePassword() {
+    // ask user for input
+    passwordLength = parseInt(prompt("Number of characters in password?"));
+    if ((passwordLength < 8) || (passwordLength > 128)) {
+        alert("Password must be between 8 and 128 characters!");
     }
     else {
-        alert("Must select yes for at least one character type!");
-        // using return to stop further execution of the function if no character types confirmed
-        return;
+        alert("Please choose your character types");
     }
-  }
-
-    // function that generates the password
-    function generatePassword(userOptions) {
-        var password = [];
-
-        // if lowercase confirmed
-
-            // push a random lower char to password
-            // add lowerCharsArray to userOptionalChars
-
-        // if uppercase confirmed
-        
-            // push a random upper char to password
-            // add upperCharsArray to userOptionalChars
-
-        // if special chars confirmed
-
-            // push a random special char to password
-            // add specialCharsArray to userOptionalChars
-
-        // if numeric is confirmed
-
-            // push a random numeric char to password
-            // add numericCharsArray to userOptionalChars
-
-        // for loop between start number of elements in password to the requested number of characters
-
-        // convert the array to a string
-
-        // return password string
-    }
-
-
-    // alert password;
-    // return password;
-
-
-
-
-// Write password to the #password input
-
-function writePassword() {
-  
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
 }
 
-// Add event listener to generate button
+// function that writes password to text area in html
+function writePassword() {
+  
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+  
+    passwordText.value = password;
+  
+  }
+  
 generateBtn.addEventListener("click", writePassword);
-
-//when we click the button above, we are calling the write password function
