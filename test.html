@@ -80,6 +80,57 @@ function generatePassword() {
         alert("You have selected uppercase, lowercase and special characters.");
         userChoices = character.concat(upperCaseArray, lowerCaseArray, specialCharactersArray);
     }
+    // if 2 types selected, user inputs are added to the userChoices variable
+    else if (confirmNumeric && confirmUpperCase) {
+        alert("You have selected numeric and uppercase.");
+        userChoices = character.concat(numericArray, upperCaseArray);
+    }
+    else if (confirmNumeric && confirmLowerCase) {
+        alert("You have selected numeric and lowercase.");
+        userChoices = character.concat(numericArray, lowerCaseArray);
+    }
+    else if (confirmNumeric && confirmSpecialCharacters) {
+        alert("You have selected numeric and special characters.");
+        userChoices = character.concat(numericArray, specialCharactersArray);
+    }
+    else if (confirmLowerCase && confirmUpperCase) {
+        alert("You have selected lowercase and uppercase.");
+        userChoices = character.concat(lowerCaseArray, upperCaseArray);
+    }
+    else if (confirmLowerCase && confirmSpecialCharacters) {
+        alert("You have selected lowercase and special characters.");
+        userChoices = character.concat(lowerCaseArray, specialCharactersArray);
+    }
+    else if (confirUpperCase && confirmSpecialCharacters) {
+        alert("You have selected uppercase and special characters.");
+        userChoices = character.concat(upperCaseArray, specialCharactersArray);
+    }
+    // if only 1 type is selected, user input is added to the userChoices variable
+    else if (confirmNumeric) {
+        alert("You have selected numeric.");
+        userChoices = numericArray;
+    }
+    else if (confirmUpperCase) {
+        alert("You have selected uppercase.");
+        userChoices = upperCaseArray;
+    }
+    else if (confirmLowerCase) {
+        alert("You have selected lowercase.");
+        userChoices = lowerCaseArray;
+    }
+    else if (confirmSpecialCharacters) {
+        alert("You have selected special characters.");
+        userChoices = specialCharactersArray;
+    }
+
+    // declaring password variable that will store user choices up to the specified password length
+    var password = [];
+    
+    // for loop to randomly select characters for password generation
+    for (var i = 0; i < passwordLength; i++) {
+        var selectedCharacterTypes = userChoices[Math.floor(Math.random() * userChoices.length)];
+        password.push(selectedCharacterTypes);
+    }
 }
 
 generatePassword();
