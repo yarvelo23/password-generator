@@ -9,8 +9,7 @@ var generateBtn = document.querySelector("#generate");
     //passwordText.value = password;
  //}
 
-// return a string
-function generatePassword() {
+// ====== DEFINING ARRAYS ======
 
   // array of uppercase letters
   var upperCaseArray = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",] 
@@ -26,31 +25,26 @@ function generatePassword() {
   
   // get user options and store in vars
   function getUserOptions() {
-    var passwordLength = prompt("Number of characters in password? Should be longer than 8 and shorter than 128!");
-    if ((passwordLength < "8") || (passwordLength > "128")) {
+    // prompts user for password length and stores in variable
+    var passwordLength = prompt("Number of characters in password?");
+    // checks to ensure that the password length is between 8 and 128... 
+    // incorporates parseInt to convert user's string input to a number
+    if ((passwordLength < parseInt("8")) || (passwordLength > parseInt("128"))) {
         alert("must have password between 8 and 128 characters")
     }
     var confirmLowerCase = confirm("Include lowercase characters?");
     var confirmUpperCase = confirm("Include uppercase characters?");
     var confirmNumeric = confirm("Include numeric values?");
     var confirmSpecialCharacters = confirm("Include special characters?");
+
+    // checking that user has selected yes for at least one of the 4 types of characters above
+    if ((confirmLowerCase) || (confirmUpperCase) || (confirmNumeric) || (confirmSpecialCharacters)) {
+        // if at least one is true, do nothing, hence we leave below blank
+    }
+    else {
+        alert("Must select yes for at least one character type!");
+    }
   }
-  
-  //prompt for length
-  
-  // if length is NOT greater than 8 and less than 128
-
-    //alert (must have password between 8 and 128 characters)
-
-  //confirm: lowercase 
-  //confirm: uppercase 
-  //confirm: numeric 
-  //confirm: special characters
-  
-  //
-  //
-  
-  // check if at least one is chosen by the user (true)
 
     // generate password
 
