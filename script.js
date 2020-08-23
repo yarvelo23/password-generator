@@ -55,7 +55,7 @@ function generatePassword() {
     // if all 4 types selected, user inputs are added to the userChoices variable
     else if (confirmNumeric && confirmUpperCase && confirmLowerCase && confirmSpecialCharacters) {
         
-        userChoices = character.concat(numericArray, upperCaseArray, lowerCaseArray, );
+        userChoices = specialCharactersArray.concat(numericArray, upperCaseArray, lowerCaseArray, );
     }
     // if 3 types selected, user inputs are added to the userChoices variable
     else if (confirmNumeric && confirmUpperCase && confirmLowerCase) {
@@ -68,7 +68,7 @@ function generatePassword() {
     }
     else if (confirmNumeric && confirmLowerCase && confirmSpecialCharacters) {
        
-        userChoices = numeric.concat(lowerCaseArray, specialCharactersArray);
+        userChoices = numericArray.concat(lowerCaseArray, specialCharactersArray);
     }
     else if (confirmUpperCase && confirmLowerCase && confirmSpecialCharacters) {
         
@@ -120,15 +120,12 @@ function generatePassword() {
     // declaring password variable that will store user choices up to the specified password length
     var password = [];
     
-    // for loop to randomly select characters for password generation
+    // for loop to randomly select characters for password generation and write them to the password array
     for (var i = 0; i < passwordLength; i++) {
         var selectedCharacterTypes = userChoices[Math.floor(Math.random() * userChoices.length)];
         password.push(selectedCharacterTypes);
     }
     
-    // ==== NEED TO FIGURE OUT HOW TO GET THE WRITE FUNCTION TO WORK, THIS IS THE ONLY MISSING COMPONENT ====
-    // ======================================================================================================
-    // ======================================================================================================
 
     var ps = password.join("");
     UserInput(ps);
