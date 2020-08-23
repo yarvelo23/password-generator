@@ -1,5 +1,7 @@
-// DEFINING USER INPUT VARIABLES
+// assigning variable to button function
 var generateBtn = document.querySelector("#generate");
+
+// DEFINING USER INPUT VARIABLES
 
 // making these variables global so that they can be called outside of each function
 var passwordLength;
@@ -28,6 +30,8 @@ generateBtn.addEventListener("click", function () {
     document.getElementById("password").placeholder = ps;
 });
 
+// DEFINING FUNCTIONS
+
 // function that generates the password
 function generatePassword() {
     // ask user for input
@@ -46,12 +50,13 @@ function generatePassword() {
     confirmUpperCase = confirm("Include upper case letters?");
     confirmLowerCase = confirm("Include lower case letters?");
     confirmSpecialCharacters = confirm("Include special characters?");
-    }
+    };
 
     // condition to confirm at least one character type selected
     if (confirmNumeric === false && confirmUpperCase === false && confirmLowerCase === false & confirmSpecialCharacters === false) {
         alert("Must select at least one character type!");
     }
+    
     // if all 4 types selected, user inputs are added to the userChoices variable
     else if (confirmNumeric && confirmUpperCase && confirmLowerCase && confirmSpecialCharacters) {
         
@@ -90,12 +95,10 @@ function generatePassword() {
     else if (confirmLowerCase && confirmUpperCase) {
        
         userChoices = lowerCaseArray.concat(upperCaseArray);
-    }
-    else if (confirmLowerCase && confirmSpecialCharacters) {
+    } else if (confirmLowerCase && confirmSpecialCharacters) {
         
         userChoices = lowerCaseArray.concat(specialCharactersArray);
-    }
-    else if (confirUpperCase && confirmSpecialCharacters) {
+    } else if (confirUpperCase && confirmSpecialCharacters) {
         
         userChoices = upperCaseArray.concat(specialCharactersArray);
     }
@@ -110,12 +113,12 @@ function generatePassword() {
     }
     else if (confirmLowerCase) {
         
-        userChoices = lowerCaseArray;
+        userChoices = lowerCaseArray
     }
     else if (confirmSpecialCharacters) {
         
         userChoices = specialCharactersArray;
-    };
+    }
     
     // declaring password variable that will store user choices up to the specified password length
     var password = [];
@@ -126,12 +129,13 @@ function generatePassword() {
         password.push(selectedCharacterTypes);
     }
     
-
+    // converting password array into a string
     var ps = password.join("");
     UserInput(ps);
     return ps;
 }
-
+    
+// function that writes the password to the text box
 function UserInput(ps) {
-    document.getElementById("password").textContent = ps;
+document.getElementById("password").textContent = ps;
 }
